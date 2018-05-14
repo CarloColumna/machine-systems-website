@@ -34,5 +34,5 @@ web framework as well as other node extensions for other functionalities.
 
 ## Run
 ```sh
-$ node server.js
+$ node app.js
 ```
