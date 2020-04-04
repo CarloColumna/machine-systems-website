@@ -1,17 +1,17 @@
 'use strict';
 
-// ================================================================
-// get all the tools we need
-// ================================================================
 const express = require('express');
 const routes = require('./routes/routes.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const helmet = require('helmet');   // Add some security from HTTP headers
-const csrf = require('csurf');      // Protect from Cross-site Request Forgery
-const config = require("./config/secrets");  // Get credentials from config
+// Add some security from HTTP headers
+const helmet = require('helmet');
+// Protect from Cross-site Request Forgery
+const csrf = require('csurf');
+// Get credentials from config
+const config = require("./config/secrets");  
 
 const port = process.env.PORT || 3000;
 
@@ -51,10 +51,10 @@ app.use((req, res, next) => {
     res.status(404).send("Sorry can't find that!")
 })
   
-// app.use((err, req, res, next) => {
-//     console.error(err.stack)
-//     res.status(500).send('Something broke!')
-// })
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+})
 
 
 // ================================================================

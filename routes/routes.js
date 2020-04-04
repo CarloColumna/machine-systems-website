@@ -15,6 +15,28 @@ module.exports = function (app) {
         });
     });
 
+    // Render the about page
+    app.get('/about', function (req, res) {
+        res.render('pages/about', {
+            title: 'About',
+            data: {},
+            errors: {},
+            successful_submit: false,
+            csrfToken: req.csrfToken()
+        });
+    });
+
+    // Render the services page
+    app.get('/services', function (req, res) {
+        res.render('pages/services', {
+            title: 'Services',
+            data: {},
+            errors: {},
+            successful_submit: false,
+            csrfToken: req.csrfToken()
+        });
+    });
+
     // Render the contact page
     app.get('/contact', function (req, res) {
         res.render('pages/contact', {
@@ -53,15 +75,20 @@ module.exports = function (app) {
             }
 
             const data = matchedData(req);
-            console.log('Sanitized:', data);
 
             // create reusable transporter object using the default SMTP transport
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
                 host: 'smtp.gmail.com',
+                secure: true,
+                port: 465,
                 auth: {
-                    user: config.email, 
-                    pass: config.emailPassword 
+                    user: config.email,
+                    pass: config.emailPassword
+                },
+                tls: {
+                    // do not fail on invalid certs
+                    rejectUnauthorized: false
                 }
             });
 
@@ -70,7 +97,7 @@ module.exports = function (app) {
                 from: config.email, // sender address
                 to: data.email, // list of receivers 
                 subject: data.subject, // Subject line
-                text: data.message + data.name // plain text body
+                text: data.message + "\n\n" + data.name // plain text body
             };
 
             // send mail with defined transport object
@@ -85,6 +112,7 @@ module.exports = function (app) {
 
             // Rerender the contact page and allow the success modal to show
             return res.render('pages/contact', {
+                title: 'Contact',
                 data: {},
                 errors: {},
                 successful_submit: true,

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+
+<body>
+    <% include ../partials/nav %>
+    <header class="contact-page-header">
+        <div class="contact-page-container">
+            <h1 class="contact-page-header-title">About Us</h1>
+            <p class="subheading">This is a wip page. There's nothing here yet.</p>
+        </div>
+    </header>
+
+    <% include ../partials/footer %>
+
+    <% include ../partials/scripts %>
+
+    <!-- Check for successful submit to show modal -->
+    <% if (successful_submit) { %>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#successModal").modal('show');
+        });
+    </script>
+    <% } %>
+
+</body>
+
+</html>

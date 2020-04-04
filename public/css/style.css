@@ -1,14 +1,18 @@
 #header-logo {
     height: auto;
     width: auto;
-    max-width: 180px;
-    max-height: 180px;
+    max-width: 500px;
+    max-height: 500px;
     padding: 0;
-    margin-top: -32px;
-    margin-left: -20px;
+    margin-top: -15px;
+    margin-left: -150px;
     margin-bottom: -50px;
     z-index: 1;
     position: absolute;
+}
+
+.subheading {
+    color: #fff;
 }
 
 .carousel-inner img {
@@ -22,7 +26,7 @@ div.carousel-inner h4, h2 {
 
 
 .navbar-brand {
-    padding-left: 130px;
+    padding-left: 100px;
 }
 
 .navline {
@@ -93,6 +97,8 @@ div.carousel-inner h4, h2 {
     max-height: 237px;
     height: auto;
     overflow: auto;
+
+
 }
 
 
@@ -200,9 +206,9 @@ div.carousel-inner h4, h2 {
     display: block;
     width: 50%;
     height: auto;
-    max-width: 200px;
-    max-height: 200px;
-    margin: -30px auto -100px auto;
+    max-width: 500px;
+    max-height: 500px;
+    margin: -15px auto -50px auto;
 }
 
 .contact-page-container {
@@ -211,7 +217,7 @@ div.carousel-inner h4, h2 {
 }
 
 .contact-page-header {
-    background-image: url('/img/header/contact-header.png');
+    background-image: url('/img/contact-header.jpg');
     background-position: center center;
     background-size: cover;
     padding: 60px 0 80px;
